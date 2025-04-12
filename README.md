@@ -16,3 +16,17 @@ This project provides a web interface and API for controlling a fan using an ESP
 
 ### Note
 Due to the ESP32's VIN only outputting 5V instead of the required 12V, the fan will not reach its full speed potential of 1600 RPM. Additionally, current configurations do not fully stop the fan. The minimum operating speed is approximately 90-120 RPM, even when set to the lowest RPM (1 RPM setting).
+
+### Get Current RPM
+
+```bash
+curl -X GET http://<ESP32_IP_ADDRESS>/rpm
+```
+
+### Set Desired RPM
+
+```bash
+curl -X POST -d "1000" http://<ESP32_IP_ADDRESS>/rpm
+```
+
+Replace `<ESP32_IP_ADDRESS>` with the IP address assigned to your ESP32 on your network.
