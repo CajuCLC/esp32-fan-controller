@@ -25,6 +25,7 @@ def calculate_rpm(timer):
     revolutions = pulses / 2
     current_rpm = revolutions * 60
     pulses = 0
+    print("Current RPM:", current_rpm)  # Debugging line for RPM
 
 # Proportional control to adjust PWM based on RPM
 def adjust_pwm(timer):
@@ -34,6 +35,7 @@ def adjust_pwm(timer):
     duty_cycle += int(adjustment)
     duty_cycle = max(0, min(1023, duty_cycle))
     pwm0.duty(duty_cycle)
+    print("Duty Cycle:", duty_cycle)  # Debugging line for Duty Cycle
 
 # Set up the RPM reading pin
 rpm_pin = Pin(RPM_PIN, Pin.IN, Pin.PULL_UP)
